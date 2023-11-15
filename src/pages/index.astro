@@ -1,0 +1,60 @@
+---
+import AppLayout from '../layouts/AppLayout.astro';
+import { Image } from 'astro:assets';
+import sflogo from '../assets/sflogo.png';
+import collaborators from '../data/collaborators.json';
+const title = "Home | Space Faculty"
+---
+
+<AppLayout title={title}>
+  <section class="text-center h-[60vh] grid place-items-center items-cente bg-center bg-no-repeat bg-cover bg-hero mx-auto" aria-labelledby="section-title">
+    <div class="flex items-center w-full h-full mx-auto bg-gradient-to-t from-zinc-900 via-zinc-900/60 to-zinc-900 jusitfy-center">
+			<div class="mx-auto">
+				<h1 class="mb-4 text-4xl font-bold tracking-tight text-zinc-100">Experimentation · Learning · Leadership</h1>
+				<h2 class="text-lg text-zinc-200">
+						Tomorrow’s world holds many limitless possibilities
+						and space is our first stop in our quest to
+						innovate, invent and inspire.
+				</h2>
+			</div>
+    </div>
+  </section>
+  <section class="grid items-center grid-cols-2 px-24 py-20 leading-relaxed bg-zinc-850 space-4">
+		<div>
+			<h1 class="text-3xl font-semibold text-zinc-200">Why Space Faculty?</h1>
+			<p class="pt-4 text-zinc-300 hyphens-auto">
+        Space Faculty brings together leading space experts and thought leaders from around the world to design space learning and development programs.
+        Its programmes draw on the space expertise and global connections of the pioneering team behind Singapore Space & Technology Pte Ltd.
+			</p>
+		</div>
+		<div class="flex items-center justify-center">
+			<Image
+            src={sflogo}
+            class="inline-flex overflow-hidden w-80"
+            alt="Image of the author"
+            loading="eager"
+      />
+		</div>
+	</section>
+  <section class="grid items-center px-24 py-20 text-center bg-zinc-950">
+		<div>
+			<h1 class="mb-8 text-4xl font-semibold text-zinc-200">Our Collaborators</h1>
+			<div class="grid grid-cols-2 gap-8 m-auto lg:grid-cols-5 [&>*:nth-child(even)]:lg:mt-8">
+					{
+						collaborators.map((item) => (
+							<div class="flex flex-col items-center">
+								<img src={item.image} alt={item.name} class="object-cover w-32 h-32 mb-4 bg-white rounded-md lg:h-64 lg:w-64" />
+							</div>
+						))
+					}
+				</div>
+		</div>
+	</section>
+	<section class="grid items-center px-24 py-20 leading-relaxed place-items-center bg-zinc-850 space-4">
+		<div>
+			<h1 class="text-4xl font-semibold capitalize text-zinc-200">What are you waiting for?</h1>
+			<p class="pt-4 text-zinc-300 hyphens-auto">
+        Join Us!
+		</div>
+	</section>
+</AppLayout>

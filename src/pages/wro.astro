@@ -1,0 +1,19 @@
+---
+import AppLayout from '../layouts/AppLayout.astro';
+import { Image } from 'astro:assets';
+import wroBanner from '../assets/wro-banner.png';
+const title = "WRO | Space Faculty";
+const description =
+  "WRO is a global robotics competition where young participants demonstrate their skills in building and programming robots to tackle various challenges. It promotes STEM education, creativity, and teamwork.";
+---
+
+<AppLayout title={title} description={description}>
+	<section class="bg-zinc-950 w-screen flex content-center justify-center py-20">
+		<Image
+            src={wroBanner}
+            class="inline-flex w-[30%] overflow-hidden aspect-rectangle"
+            alt="Image of the author"
+            loading="eager"
+          />
+	</section>
+</AppLayout>
